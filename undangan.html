@@ -31,44 +31,78 @@
       text-decoration: none;
       border-radius: 10px;
     }
+    .hidden {
+      display: none;
+    }
+    .welcome {
+      padding: 100px 20px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h2>Undangan Tasyakuran Khitan</h2>
+
+  <!-- ✅ ONBOARDING / HALAMAN PEMBUKA -->
+  <div id="onboarding" class="welcome">
+    <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
+    <p>Yth. Bapak/Ibu/Saudara/i<br>Dengan hormat, kami mengundang Anda ke acara Tasyakuran Khitan</p>
     <h1>Raditya Usman Hafidz</h1>
-  </header>
+    <button class="button" onclick="bukaUndangan()">🎉 Buka Undangan</button>
+  </div>
 
-  <section>
-    <img src="radit.jpeg" alt="Foto Radit" style="max-width: 300px; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-  </section>
+  <!-- ✅ HALAMAN UNDANGAN -->
+  <div id="undangan" class="hidden">
 
-  <section>
-    <h2>Waktu & Tempat</h2>
-    <p>Hari : Minggu, 29 Juni 2025 <br/>Pukul: 09.00 WIB - Selesai<br/>Jl. Pulo Jaya, No 13, RT 008 / RW 012, Beji, Depok</p>
-    <p>Merupakan suatu kehormatan bagi kami jika Bapak/Ibu/Saudara/i berkenan hadir.</p>
-  </section>
+    <header>
+      <h2>Undangan Tasyakuran Khitan</h2>
+      <h1>Raditya Usman Hafidz</h1>
+    </header>
 
-  <section>
-    <h2>RSVP</h2>
-    <p>Silakan konfirmasi kehadiran Anda melalui link di bawah:</p>
-    <a class="button" href="https://forms.gle/yourform" target="_blank">RSVP via Google Form</a>
-  </section>
+    <section>
+      <img src="radit.jpeg" alt="Foto Radit" style="max-width: 300px; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+    </section>
 
-  <section>
-    <h2>Hubungi Kami</h2>
-    <p></p>
-    <a class="button" href="https://wa.me/6289635961916?text=Hai%20saya%20akan%20hadir%20di%20acara%20Tasyakuran%20Khitan%20Raditya%20Usman%20Hafidz" target="_blank">Konfirmasi via WhatsApp</a>
-  </section>
+    <section>
+      <h2>Waktu & Tempat</h2>
+      <p>Hari : Minggu, 29 Juni 2025 <br/>Pukul: 09.00 WIB - Selesai<br/>Jl. Pulo Jaya, No 13, RT 008 / RW 012, Beji, Depok</p>
+      <p>Merupakan suatu kehormatan bagi kami jika Bapak/Ibu/Saudara/i berkenan hadir.</p>
+    </section>
 
+    <section>
+      <h2>RSVP</h2>
+      <p>Silakan konfirmasi kehadiran Anda melalui link di bawah:</p>
+      <a class="button" href="https://forms.gle/yourform" target="_blank">RSVP via Google Form</a>
+    </section>
+
+    <section>
+      <h2>Hubungi Kami</h2>
+      <a class="button" href="https://wa.me/6289635961916?text=Hai%20saya%20akan%20hadir%20di%20acara%20Tasyakuran%20Khitan%20Raditya%20Usman%20Hafidz" target="_blank">Konfirmasi via WhatsApp</a>
+    </section>
+
+    <section>
+      <button onclick="document.getElementById('musik').play()">🎵 Putar Musik</button>
+    </section>
+
+    <footer style="padding: 20px; font-size: 0.8em;">
+      <!-- <p>Terima kasih atas doa dan restunya 💕</p> -->
+    </footer>
+  </div>
+
+  <!-- ✅ AUDIO -->
   <audio id="musik" loop>
-  <source src="jumbo.mp3" type="audio/mpeg">
+    <source src="jumbo.mp3" type="audio/mpeg">
   </audio>
 
-<button onclick="document.getElementById('musik').play()">🎵 Putar Musik</button>
+  <!-- ✅ SCRIPT -->
+  <script>
+    function bukaUndangan() {
+      document.getElementById('onboarding').classList.add('hidden');
+      document.getElementById('undangan').classList.remove('hidden');
+      const musik = document.getElementById('musik');
+      musik.play().catch(function(e) {
+        console.log("Autoplay gagal, pengunjung harus menekan tombol play:", e);
+      });
+    }
+  </script>
 
-  <footer style="padding: 20px; font-size: 0.8em;">
-    <!-- <p>Terima kasih atas doa dan restunya 💕</p> -->
-  </footer>
 </body>
 </html>
